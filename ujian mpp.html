@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portofolio & Pesan Joki Game</title>
+  {
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  }
+<style>
+  /* Reset and base */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body {
+    background: #121212;
+    color: #eee;
+    line-height: 1.6;
+  }
+  a {
+    text-decoration: none;
+    color: #1db954;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #1ed760;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem 1rem;
+  }
+
+  /* Header & Nav */
+  header {
+    background: #282828;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0; left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1db954;
+  }
+
+  nav {
+    position: relative;
+  }
+
+  /* Hamburger */
+  .menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 0;
+    width: 30px;
+    height: 22px;
+  }
+  .menu-btn span {
+    background: #1db954;
+    height: 4px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Navigation links */
+  ul.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  ul.nav-links li a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 5px 0;
+  }
+  ul.nav-links li a.active,
+  ul.nav-links li a:hover {
+    border-bottom: 2px solid #1ed760;
+  }
+
+  /* Responsive nav */
+  @media (max-width: 768px) {
+    .menu-btn {
+      display: flex;
+    }
+    ul.nav-links {
+      position: fixed;
+      top: 64px;
+      right: -100%;
+      background: #282828;
+      height: calc(100vh - 64px);
+      width: 240px;
+      flex-direction: column;
+      padding: 2rem 1rem;
+      gap: 1.5rem;
+      transition: right 0.3s ease;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.7);
+    }
+    ul.nav-links.open {
+      right: 0;
+    }
+  }
+
+  /* Sections */
+  section {
+    padding: 100px 0 60px 0;
+  }
+  section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #1db954;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  section p {
+    max-width: 700px;
+    margin: 0.5rem auto 2rem auto;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #ccc;
+  }
+
+  /* About */
+  #about .content {
+    max-width: 700px;
+    margin: auto;
+    font-size: 1.2rem;
+    color: #ddd;
+    line-height: 1.8;
+  }
+
+  /* Portfolio */
+  #portfolio .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: auto;
+  }
+  .project-card {
+    background: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  .project-card .project-info {
+    padding: 1rem;
+    flex-grow: 1;
+  }
+  .project-card h3 {
+    color: #1db954;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+  }
+  .project-card p {
+    color: #bbb;
+    font-size: 1rem;
+    flex-grow: 1;
+  }
+
+  /* Pesan Joki Game */
+  #joki {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #222;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #1db954aa;
+  }
+  #joki h3 {
+    color: #1ed760;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  #joki p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+    text-align: justify;
+  }
+  #joki button {
+    display: block;
+    margin: 1.5rem auto 0 auto;
+    background-color: #1db954;
+    border: none;
+    color: white;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #joki button:hover {
+    background-color: #1ed760;
+  }
+
+  /* Contact */
+  #contact form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  #contact label {
+    font-weight: 600;
+  }
+  #contact input,
+  #contact textarea {
+    padding: 0.7rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    resize: none;
+  }
+  #contact input:focus,
+  #contact textarea:focus {
+    outline: 2px solid #1db954;
+  }
+  #contact button {
+    background-color: #1db954;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  #contact button:hover{
+    background-color: #1ed760;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: #181818;
+    color: #777;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+  }
+  
+  /* New Styles */
+  #preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #1db954;
+    display: block;
+    margin: 20px auto;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .menu-btn {
+    margin-left: auto;
+  }
+  
+  .contact-info {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: #ccc;
+  }
+  
+  .contact-info a {
+    color: #1db954;
+  }
+  
+  .contact-info a:hover {
+    color: #1ed760;
+  }
+  
+  /* Social Media Links */
+  .social-media {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .social-media p {
+    margin-bottom: 1rem;
+    color: #ccc;
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1e1e1e;
+    transition: all 0.3s ease;
+  }
+  
+  .social-link:hover {
+    background-color: #1db954;
+    transform: translateY(-3px);
+  }
+  
+  .social-link img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+  }
+ 
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Portofolio Saya</div>
+  <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav>
+    <ul class="nav-links" id="navigation">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#portfolio">Portofolio</a></li>
+      <li><a href="#joki">Pesan Joki Game</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container">
+  <section id="home">
+    <h2 class="fade-in">Selamat Datang di Portofolio Saya</h2>
+    <img id="preview" src="pandu.jpg" class="fade-in" alt="Foto Profil">
+    <p class="fade-in">Halo! Saya Pandu Winata seorang profesional dengan berbagai keahlian. Dalam website ini, kamu dapat melihat hasil kerja saya dan juga layanan pesan joki game yang saya tayarkan.</p>
+  </section>
+
+  <section id="about">
+    <h2 class="fade-in">Tentang Saya</h2>
+    <div class="content">
+      <p class="fade-in">Saya seorang siswa di SMKN 7 Batam, dan game boosting. Saya bersemangat membantu para gamer yang ingin meningkatkan level dan rating mereka dengan jasa joki game yang profesional dan terpercaya.</p>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <h2>Portofolio</h2>
+    <div class="grid">
+      <div class="project-card">
+        <img src="logo.jpeg" class="fade-in" alt="Project 1" />
+        <div class="project-info">
+          <h3>Desain Logo</h3>
+          <p>Mendesain logo untuk brand start-up yang ingin menonjolkan identitas modern dan kreatif.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="web.jpeg" class="fade-in" alt="Project 2" />
+        <div class="project-info">
+          <h3>Website Profil Perusahaan</h3>
+          <p>Membangun website responsif untuk perusahaan yang ingin meningkatkan kehadiran online mereka.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="store.png" class="fade-in" alt="Project 3" />
+        <div class="project-info">
+          <h3>Boosting Game</h3>
+          <p>Menyediakan jasa boosting game dengan hasil maksimal dan aman untuk berbagai jenis game online.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="joki" class="fade-in">
+    <h2>Pesan Joki Game</h2>
+    <h3>Layanan Joki Game Profesional</h3>
+    <p class="fade-in">Kamu ingin naik level atau rank di game favoritmu tanpa ribet? Jasa joki game kami siap membantu kamu! Kami menyediakan layanan boosting terpercaya untuk berbagai game populer, menjaga keamanan akun dan hasil yang memuaskan.</p>
+    <p class="fade-in">Layanan meliputi: naik rank, menyelesaikan misi sulit, grinding gold, dan lain-lain. Hubungi kami dan nikmati kemudahan naik level dengan aman dan cepat.</p>
+    <button id="orderJoki" class="fade-in">Pesan Sekarang</button>
+  </section>
+
+  <section id="contact">
+    <h2>Kontak</h2>
+    <form id="contactForm">
+      <label for="name">Nama Lengkap</label>
+      <input type="text" id="name" name="name" placeholder="Nama lengkap Anda" required />
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Email Anda" required />
+      <label for="message">Pesan</label>
+      <textarea id="message" name="message" rows="5" placeholder="Ketik pesan Anda..." required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+    <div class="social-media">
+  <p>Atau hubungi saya melalui:</p>
+  <div class="social-links">
+    <a href="https://facebook.com/Pan Du Win" class="social-link" target="_blank">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://instagram.com/dyuipan" class="social-link" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://wa.me/6281378018750" class="social-link" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 Portofolio & Joki Game. Semua hak dilindungi.
+</footer>
+
+<script>
+  // Navigation toggle
+  const menuBtn = document.querySelector('.menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+  let menuOpen = false;
+  menuBtn.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', menuOpen);
+  });
+
+  // Close menu when clicking a nav link (mobile)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      if(menuOpen) {
+        navLinks.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', false);
+        menuOpen = false;
+      }
+    });
+  });
+
+  // Scroll spy for active nav link
+  const sections = document.querySelectorAll('section');
+  const navItems = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollPos = window.scrollY + 80;
+    sections.forEach(section => {
+      if(scrollPos >= section.offsetTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    navItems.forEach(link => {
+      link.classList.remove('active');
+      if(link.getAttribute('href') === '#'+current) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // Order button for Joki Game
+  document.getElementById('orderJoki').addEventListener('click', () => {
+    alert('Terima kasih telah memesan layanan joki game! Kami akan menghubungi Anda segera.');
+  });
+
+  // Contact form submission (dummy)
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Pesan Anda telah dikirim. Terima kasih sudah menghubungi kami!');
+    e.target.reset();
+  });
+  
+  // Fade-in animation
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const socialLinks = document.querySelectorAll('.social-link');
+
+  function checkScroll() {
+    const triggerBottom = window.innerHeight * 0.85;
+    
+    fadeEls.forEach(el => {
+      const elTop = el.getBoundingClientRect().top;
+      if(elTop < triggerBottom) {
+        el.classList.add('show');
+      }
+    });
+    
+    // Animate social links when contact section is visible
+    const contactSection = document.querySelector('#contact');
+    const contactTop = contactSection.getBoundingClientRect().top;
+    if(contactTop < triggerBottom) {
+      socialLinks.forEach((link, index) => {
+        setTimeout(() => {
+          link.style.opacity = '1';
+          link.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+    }
+  }
+
+  // Initialize elements
+  socialLinks.forEach(link => {
+    link.style.opacity = '0';
+    link.style.transform = 'translateY(20px)';
+    link.style.transition = 'all 0.5s ease';
+  });
+
+  // Check on load and scroll
+  window.addEventListener('load', checkScroll);
+  window.addEventListener('scroll', checkScroll);
+</script>
+</body>
+</html>
